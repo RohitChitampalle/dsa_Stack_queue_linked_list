@@ -31,10 +31,10 @@ function binarySearch(arr, x)
 	return -1;
 }
 
-	arr =new Array(2, 3, 4, 10, 40);
-	x = 10;
-	n = arr.length;
-	result = binarySearch(arr, x);
+	let arr =new Array(2, 3, 4, 10, 40);
+	let x = 10;
+	let n = arr.length;
+	let result = binarySearch(arr, x);
 	
 (result == -1) ? console.log("Element is not present in array")
 			: console.log ("Element is present at index " + result);
