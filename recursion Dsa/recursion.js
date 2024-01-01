@@ -64,21 +64,24 @@
 // let result=exponent(5)
 // console.log(result)
 
-let check_Sorted=(n,arr)=>{
+// let check_Sorted=(n,arr)=>{
 
-    if (n>=arr.length){
-        return true
-    }
-    if(arr[n]<arr[n-1]){
-        return false
-    }
+//     if (n>=arr.length){
+//         return true
+//     }
+//     if(arr[n]<arr[n-1]){
+//         return false
+//     }
     
-    return   check_Sorted(n+1,arr)
+//     return   check_Sorted(n+1,arr)
        
 
     
-}
-let n=0
-let arr=[1,2,3,4,5]
-let result=check_Sorted(n,arr)
-console.log(result)
+// }
+// let n=0
+// let arr=[1,2,3,4,5]
+// let result=check_Sorted(n,arr)
+// console.log(result)
+
+
+
