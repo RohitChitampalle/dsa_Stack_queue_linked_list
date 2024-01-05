@@ -89,6 +89,19 @@ class Node {
             cur.next = null
         }
     }
+    reverseLinkedList(head) {
+        var prev = null;
+        var current = head;
+        var next = null;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+        this.print_heade(head)
+    }
 
 }
 
@@ -104,10 +117,12 @@ node1.insertAtHead(head, 13)
 node1.insertAtHead(head, 14)
 node1.insertAtHead(head, 15)
 // node1.insertAtPosition(head, 2, 50)
+// node1.print_heade(head)
+// node1.deleteNode(2, head)
 node1.print_heade(head)
 console.log("--------x----x----x----x--------")
-node1.deleteNode(2, head)
-node1.print_heade(head)
+node1.reverseLinkedList(head)
+
 
 
 
