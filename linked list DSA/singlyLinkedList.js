@@ -331,6 +331,45 @@ class Node {
         }
         head=temp
     }
+
+    cntNodes(head) {
+        if (head == null) return 0;
+
+        return 1 + this.cntNodes(head.next);
+    }
+
+    updateList(head, m) {
+        // Total nodes in the list
+        var cnt = this.cntNodes(head);
+
+        if (cnt != m && m < cnt) {
+            // Count of nodes to be skipped
+            // from the beginning
+            var skip = cnt - m;
+            var prev = null;
+            var curr = head;
+
+            // Skip the nodes
+            while (skip > 0) {
+                prev = curr;
+                curr = curr.next;
+                skip--;
+            }
+
+            // Change the pointers
+            prev.next = null;
+            var tempHead = head;
+            head = curr;
+
+            // Find the last node
+            while (curr.next != null) curr = curr.next;
+
+            // Connect it to the head
+            // of the sub list
+            curr.next = tempHead;
+        }
+        this.print_heade(head)
+    }
 }
 
 
@@ -341,9 +380,10 @@ node1.insertAtHead(head, 9)
 node1.insertAtHead(head, 5)
 node1.insertAtHead(head, 7)
 
-node1.pairWiseSwap(head)
+node1.updateList(head,2)
+// node1.pairWiseSwap(head)
+// node1.print_heade(head)
 console.log("----xx----xx----xx----xxx----")
-node1.print_heade(head)
 // head.next.next.next.next.next = head.next.next;
 
 // if (node1.removeLoop(head)) {
