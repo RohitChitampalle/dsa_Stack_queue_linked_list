@@ -286,6 +286,51 @@ class Node {
             return head;
         }
     }
+
+
+    removeLoop(head) {
+
+        var s = new Set();
+        var prev = null;
+        while (head != null) {
+
+            // If we have already has this node
+            // in hashmap it means there is a cycle and we
+            // need to remove this cycle so set the next of
+            // the previous pointer with null.
+
+            if (s.has(head)) {
+                prev.next = null;
+                return true;
+            }
+
+            // If we are seeing the node for
+            // the first time, insert it in hash
+            else {
+                s.add(head);
+                prev = head;
+                head = head.next;
+            }
+        }
+
+        return false;
+    }
+
+    pairWiseSwap(head) {
+        var temp = head;
+
+        /* Traverse only till there are 
+        atleast 2 nodes left */
+        while (temp != null && temp.next != null) {
+
+            /* Swap the data */
+            var k = temp.data;
+            temp.data = temp.next.data;
+            temp.next.data = k;
+            temp = temp.next.next;
+        }
+        head=temp
+    }
 }
 
 
@@ -296,11 +341,20 @@ node1.insertAtHead(head, 9)
 node1.insertAtHead(head, 5)
 node1.insertAtHead(head, 7)
 
+node1.pairWiseSwap(head)
+console.log("----xx----xx----xx----xxx----")
+node1.print_heade(head)
+// head.next.next.next.next.next = head.next.next;
 
+// if (node1.removeLoop(head)) {
+//     console.log("Linked List after removing loop<br/>");
+//     node1.print_heade(head);
+// } else
+//     console.log("No Loop found");
 
-let newNode=node1.deleteNthNodeFromEnd(head, 2)
-console.log(newNode)
-// )
+// let newNode=node1.deleteNthNodeFromEnd(head, 2)
+// console.log(newNode)
+// // )
 // node1.print_heade(head)
 // console.log("--------x----x----x----x--------")
 // let resul = node1.mergeSort(head)
