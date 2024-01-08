@@ -248,7 +248,7 @@ class Node {
         while (carry != 0) {
             let sum = carry
             let digit = sum % 10
-            
+
             this.insert_At_Tail(ansHead, ansTail, digit)
 
             carry = sum / 10
@@ -268,6 +268,24 @@ class Node {
         return ans
     }
 
+// delete node from end 
+    deleteNthNodeFromEnd(head, n) {
+        let Length = this.lenthOfLinkedList(head);
+        let nodeFromBeginning = Length - n + 1;
+        let prev = null;
+        let temp = head;
+        for (let i = 1; i < nodeFromBeginning; i++) {
+            prev = temp;
+            temp = temp.next;
+        }
+        if (prev == null) {
+            head = head.next;
+            return head;
+        } else {
+            prev.next = prev.next.next;
+            return head;
+        }
+    }
 }
 
 
@@ -279,13 +297,9 @@ node1.insertAtHead(head, 5)
 node1.insertAtHead(head, 7)
 
 
-let node2 = new Node(7);
-var head2 = node2
-node2.insertAtHead(head2, 4)
-node2.insertAtHead(head2, 8)
 
-
-node1.add_two_numbers(head,head)
+let newNode=node1.deleteNthNodeFromEnd(head, 2)
+console.log(newNode)
 // )
 // node1.print_heade(head)
 // console.log("--------x----x----x----x--------")
