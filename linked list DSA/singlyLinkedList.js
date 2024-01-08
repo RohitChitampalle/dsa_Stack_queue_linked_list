@@ -89,19 +89,20 @@ class Node {
             cur.next = null
         }
     }
-    // reverseLinkedList(head) {
-    //     var prev = null;
-    //     var current = head;
-    //     var next = null;
-    //     while (current != null) {
-    //         next = current.next;
-    //         current.next = prev;
-    //         prev = current;
-    //         current = next;
-    //     }
-    //     head = prev;
-    //     this.print_heade(head)
-    // }
+    reverseLinkedList(head) {
+        var prev = null;
+        var current = head;
+        var next = null;
+        while (current != null) {
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        head = prev;
+        return head
+        // this.print_heade(head)
+    }
     lenthOfLinkedList(head) {
         let cnt = 0;
         let temp = head
@@ -159,7 +160,7 @@ class Node {
             temp = temp.next;
         }
         return merged.next;
-    } 
+    }
 
     findMid(head) {
         var slow = head, fast = head.next;
@@ -175,7 +176,7 @@ class Node {
         if (head.next == null)
             return head;
 
-        let middle =this.findMid(head)
+        let middle = this.findMid(head)
 
         var head2 = middle.next;
         middle.next = null;
@@ -185,38 +186,129 @@ class Node {
 
         return finalHead;
     }
+    insert_At_Tail(head, tail, val) {
+        let temp = new Node(val)
+        if (head == null) {
+            head = temp
+            tail = temp
+
+        } else {
+
+            tail.next = temp
+            tail = temp
+        }
+
+    }
+    sumof_two_numbers(first, second) {
+
+        let ansHead = null;
+        let ansTail = null;
+
+        let carry = 0;
+
+        while (first != null && second != null) {
+            let sum = carry + first.data + second.data
+
+            let digit = sum % 10
+
+            this.insert_At_Tail(ansHead, ansTail, digit)
+
+            carry = sum / 10
+
+            first = first.next
+            second = second.next
+
+        }
+
+        while (first != null) {
+
+            let sum = carry + first.data
+            let digit = sum % 10
+
+            this.insert_At_Tail(ansHead, ansTail, digit)
+
+            carry = sum / 10
+            first = first.next
+
+        }
+
+
+
+        while (second != null) {
+
+            let sum = carry + second.data
+            let digit = sum % 10
+
+            this.insert_At_Tail(ansHead, ansTail, digit)
+
+            carry = sum / 10
+            second = second.next
+        }
+
+        while (carry != 0) {
+            let sum = carry
+            let digit = sum % 10
+            
+            this.insert_At_Tail(ansHead, ansTail, digit)
+
+            carry = sum / 10
+        }
+
+
+        return ansHead
+    }
+    add_two_numbers(head, head2) {
+        let first = this.reverseLinkedList(head)
+        let second = this.reverseLinkedList(head2)
+
+        let ans = this.sumof_two_numbers(first, second)
+
+        ans = this.reverseLinkedList(ans)
+
+        return ans
+    }
 
 }
 
-var head = new Node(7);
-var temp = head;
-temp.next = new Node(10);
-temp = temp.next;
-temp.next = new Node(5);
-temp = temp.next;
-temp.next = new Node(20);
-temp = temp.next;
-temp.next = new Node(3);
-temp = temp.next;
-temp.next = new Node(2);
-temp = temp.next;
 
-// Apply merge Sort
-head =head.mergeSort(head);
-// let node1 = new Node(1);
-// head = node1
-// tail = node1
-// // console.log("Head before is ->", head)
-// // console.log("----x----x----x----x----x----x----")
-// node1.insertAtHead(head, 3)
-// node1.insertAtHead(head, 4)
-// node1.insertAtHead(head, 2)
-// node1.insertAtHead(head, 5)
+let node1 = new Node(6);
+head = node1
+node1.insertAtHead(head, 4)
+node1.insertAtHead(head, 9)
+node1.insertAtHead(head, 5)
+node1.insertAtHead(head, 7)
 
+
+let node2 = new Node(7);
+var head2 = node2
+node2.insertAtHead(head2, 4)
+node2.insertAtHead(head2, 8)
+
+
+node1.add_two_numbers(head,head)
+// )
 // node1.print_heade(head)
 // console.log("--------x----x----x----x--------")
 // let resul = node1.mergeSort(head)
 // console.log(resul)
+
+
+
+// var head = new Node(7);
+// var temp = head;
+// temp.next = new Node(10);
+// temp = temp.next;
+// temp.next = new Node(5);
+// temp = temp.next;
+// temp.next = new Node(20);
+// temp = temp.next;
+// temp.next = new Node(3);
+// temp = temp.next;
+// temp.next = new Node(2);
+// temp = temp.next;
+
+// // Apply merge Sort
+// head = head.mergeSort(head);
 
 
 
@@ -227,3 +319,5 @@ head =head.mergeSort(head);
 // node1.print_heade(d1)
 // let h5 = node1.insertAtTail(h4, 16)
 // node1.print_heade(head)
+
+
