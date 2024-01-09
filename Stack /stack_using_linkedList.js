@@ -4,8 +4,8 @@
 
 // A linked list node
 class Node {
-    constructor() {
-        this.data = 0;
+    constructor(data) {
+        this.data = data;
         this.link = null;
     }
 }
@@ -19,7 +19,7 @@ class StackUsingLinkedlist {
     // Utility function to add an element x in the stack
     push(x) {
         // create new node temp and allocate memory
-        let temp = new Node();
+        let temp = new Node(x);
 
         // check if stack (heap) is full. Then inserting an
         // element would lead to stack overflow
@@ -28,8 +28,6 @@ class StackUsingLinkedlist {
             return;
         }
 
-        // initialize data into temp data field
-        temp.data = x;
 
         // put top reference into temp link
         temp.link = this.top;
@@ -99,7 +97,7 @@ obj.push(33);
 obj.push(44);
 
 // print Stack elements
-obj.display();
+// obj.display();
 
 // print Top element of Stack
 console.log("Top element is ->", obj.peek());
