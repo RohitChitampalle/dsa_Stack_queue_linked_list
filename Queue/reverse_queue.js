@@ -6,7 +6,7 @@
     function Print()
     {
 		while (queue.length > 0) {
-        console.log(queue[0] + ", ");
+        console.log(queue[0]);
     queue.shift();
 		}
 	}
