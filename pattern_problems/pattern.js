@@ -9,7 +9,7 @@
 
 // for(let i=1;i<=5;i++){
 //     for(let j=1;j<=i;j++){
-//         star+="*"
+//         star+=" * "
 //     }
 //     star += "\n"
 // }
@@ -81,21 +81,47 @@
 //   * * * 
 //    * * 
 //     *
-let star = ""
+// let star = ""
 
-for (let i = 1; i <= 5; i++) {
+// for (let i = 1; i <= 5; i++) {
 
-        for (let j = 0; j <  i-1; j++) {
-            star += " ";
-        }
-        for (let k = 0; k < 5-i+1; k++) {
-            star += "*";
-        }
-        // printing star
-        star += "\n";
+//         for (let j = 0; j <  i-1; j++) {
+//             star += " ";
+//         }
+//         for (let k = 0; k < 5-i+1; k++) {
+//             star += "* ";
+//         }
+//         // printing star
+//         star += "\n";
     
+// }
+
+// console.log(star)
+//! alphabets pattern
+// let n = 5; // you can take input from prompt or change the value
+// let string = "";
+// // External loop
+// for (let i = 1; i <= n; i++) {
+//     // printing characters
+//     for (let j = 0; j < i; j++) {
+//         string += String.fromCharCode(j + 65);
+//     }
+//     string += "\n";
+// }
+// console.log(string);
+
+//! number pattern
+
+let n = 4; // height of pattern
+let string = "";
+let count = 1;
+// External loop
+for (let i = 1; i <= n; i++) {
+    // Internal loop
+    for (let j = 1; j <= i; j++) {
+        string += count + " ";
+        count++;
+    }
+    string += "\n";
 }
-
-console.log(star)
-
-
+console.log(string);
