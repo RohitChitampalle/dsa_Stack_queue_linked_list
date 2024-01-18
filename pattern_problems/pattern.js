@@ -38,6 +38,17 @@
 //   ***
 //  ****
 // *****
+
+// ?------and--------
+
+//! full pyramid 
+//     *
+//    ***
+//   *****
+//  *******
+// *********
+
+
 // let star = ""
 
 // for (let i = 1; i <= 5; i++) {
@@ -46,7 +57,7 @@
 //         star += " ";
 //     }
 //     for (let k = 0; k < i; k++) {
-//         star += "*";
+//         star += "* ";
 //     }
 //     // printing star
 //     star += "\n";
@@ -63,19 +74,28 @@
 //    **
 //     *
 
-// let star = ""
+//? -----and -----
+//! full invert pyramid
+// * * * * * 
+//  * * * * 
+//   * * * 
+//    * * 
+//     *
+let star = ""
 
-// for (let i = 1; i <= 5; i++) {
+for (let i = 1; i <= 5; i++) {
 
-//         for (let j = 0; j <  i-1; j++) {
-//             star += " ";
-//         }
-//         for (let k = 0; k < 5-i+1; k++) {
-//             star += "*";
-//         }
-//         // printing star
-//         star += "\n";
+        for (let j = 0; j <  i-1; j++) {
+            star += " ";
+        }
+        for (let k = 0; k < 5-i+1; k++) {
+            star += "*";
+        }
+        // printing star
+        star += "\n";
     
-// }
+}
 
-// console.log(star)
+console.log(star)
+
+
