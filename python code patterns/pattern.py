@@ -22,18 +22,18 @@
 # reversed_star = star[::-1]
 # print(reversed_star)
 
-star = ""
+# star = ""
 
-for i in range(1, 6):
-    # Adding spaces before stars
-    for j in range(5 - i):
-        star += " "
+# for i in range(1, 6):
+#     # Adding spaces before stars
+#     for j in range(5 - i):
+#         star += " "
     
-    # Adding stars
-    for k in range(i):
-        star += "*"
+#     # Adding stars
+#     for k in range(i):
+#         star += "* "
 
-    # Moving to the next line
-    star += "\n"
+#     # Moving to the next line
+#     star += "\n"
 
-print(star)
+# print(star)
