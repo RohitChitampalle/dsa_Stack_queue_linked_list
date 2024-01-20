@@ -49,7 +49,7 @@
 // *********
 
 
-let star = ""
+// let star = ""
 
 // console.log(star)
 
@@ -70,34 +70,34 @@ let star = ""
 //     *
 // let star = ""
 
-for (let i = 1; i < 5; i++) {
-    // star += " ";
+// for (let i = 1; i < 5; i++) {
+//     // star += " ";
 
-        for (let j = 0; j <  i-1; j++) {
-            star += " ";
-        }
-        for (let k = 0; k < 5-i+1; k++) {
-            star += "* ";
-        }
-        // printing star
-        star += "\n";
-        
-    }
-    
-    for (let i = 1; i <= 5; i++) {
-    
-        for (let j = 0; j < 5 - i; j++) {
-            star += " ";
-        }
-        for (let k = 0; k < i; k++) {
-            star += "* ";
-        }
-        // printing star
-        star += "\n";
-    
-    }
+//         for (let j = 0; j <  i-1; j++) {
+//             star += " ";
+//         }
+//         for (let k = 0; k < 5-i+1; k++) {
+//             star += "* ";
+//         }
+//         // printing star
+//         star += "\n";
 
-console.log(star)
+//     }
+
+//     for (let i = 1; i <= 5; i++) {
+
+//         for (let j = 0; j < 5 - i; j++) {
+//             star += " ";
+//         }
+//         for (let k = 0; k < i; k++) {
+//             star += "* ";
+//         }
+//         // printing star
+//         star += "\n";
+
+//     }
+
+// console.log(star)
 //! alphabets pattern
 // let n = 5; // you can take input from prompt or change the value
 // let string = "";
@@ -153,3 +153,57 @@ console.log(star)
 // }
 
 // console.log(star)
+
+// let n = 5;
+// let str = ""
+// // let count=1;
+// for (let i = 1; i <= n; i++) {
+
+//     for (let j = 1; j <= i; j++) {
+//         str += " ";
+//     }
+//     // creating numbers
+//     for (let k = 2 * (n - i + 1) - 1; k >= 1; k--) {
+//         str += k +"";
+
+//         // count++
+//     }
+//     // str=str.split('').reverse().join('') 
+//     str += "\n";
+//     // str += "\n"
+// }
+// console.log(str)
+//     1
+//   1 2 3
+// 1 2 3 4 5 
+
+
+// 4321
+// 4321
+// 321
+// 21
+// 1
+
+let str = ""
+
+let i = 1;
+while (i <= 9) {
+    let count = 1
+    let j = 1
+    while (j <= i) {
+
+        str += count
+
+        count++
+        j++
+    }
+    i++
+    str += "\n"
+
+}
+
+console.log(str.split('').reverse().join(''))
+// let n = str.split('').reverse().join('')
+// let temp = n[0]
+// n[0] = n[1]
+// n[1] = temp
