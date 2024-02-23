@@ -5,16 +5,16 @@
 
 // 	while (right >= left) {
 
-		//to find mid element index
+//to find mid element index
 // 		mid = left + Math.floor((right - left) / 2)
 
 
-		//if the element is eqal to mid element
+//if the element is eqal to mid element
 // 		if (x == arr[mid]) {
 // 			return mid
 // 		}
 
-		// if the elementv is greater then key
+// if the elementv is greater then key
 // 		if (arr[mid] > x ) {
 // 			right = mid - 1
 // 		} else {
@@ -24,7 +24,7 @@
 
 // 	}
 
-	//if not exits then return -1
+//if not exits then return -1
 // 	return -1
 
 // }
@@ -127,7 +127,7 @@
 // 	console.log("Index: " +i +"\n");
 // else
 // 	console.log("Key not found");
-	
+
 
 // 	function search( arr, low, high)
 // 	{
@@ -135,7 +135,7 @@
 // 	// Base cases
 // 	if (low > high)
 // 	return;
-  
+
 // 	if (low == high) {
 // 		console.log("The required element is " + arr[low]);
 // 	return;
@@ -170,4 +170,93 @@
 // search(arr, 0, len - 1)
 
 
+
+let isbookGreater = (books, students,allotment) => {
+		let bookOne = 1
+	let array = []
+	for (let index = 1; index <= students; index++) {
+		let i = 1;
+		if (index <= i) {
+			for (i; i <= students; i++) {
+				let val = allotment.get(i)
+				if (!val) {
+
+					allotment.set(i, bookOne)
+				} else {
+					allotment.forEach((data) => {
+						array.push(data)
+					})
+					let cal = array.reduce((acc, v) => {
+						return acc + v
+					})
+					array = []
+					if (cal < books) {
+
+						allotment.set(i, val + 1)
+					}
+					if (cal == books) {
+						return allotment
+					}
+				}
+
+			}
+			index = 0
+		}
+		// allotment.set("Student Roll No:" + index, "Books Alloted :" + bookOne)
+
+	}
+
+	}
+
+	let isBookLess=(books,students,allotment)=>{
+		let bookZero = 0
+		let bookOne = 1
+		for (let index = 1; index <= students; index++) {
+			let i = 1;
+			if (index <= i) {
+				for (i; i <= books; i++) {
+					allotment.set("Student Roll No:" + i, "Books Alloted :" + bookOne)
+
+				}
+				index = i++
+			}
+			allotment.set("Student Roll No:" + index, "Books Alloted :" + bookZero)
+
+		}
+		return allotment
+	}
+
+let bookAllotments = (books, students) => {
+
+	let bookOne = 1
+
+	if (!books) return "please enter books"
+	if (!students) return "please enter students"
+
+	let allotment = new Map()
+
+	if (books == students) {
+		for (let i = 1; i <= books; i++) {
+			allotment.set("Student Roll No:" + i, "Books Alloted :" + bookOne)
+		}
+		return allotment
+	}
+
+	if (books < students) {
+		let re = isBookLess(books,students ,allotment)
+		return re
+	}
+
+	if (books > students) {
+		let re=isbookGreater(books,students ,allotment)
+		return re
+    }
+}
+
+let result=[]
+let resu=bookAllotments(10,2)
+resu.forEach((books, student) => {
+	result.push([student,books])
+})
+console.log(result)
 
