@@ -19,14 +19,50 @@ function printInorder(node) {
         return;
 
     // First recur on left child */
-    printInorder(node.left);
-
-    // Then print the data of node
     console.log(node.key + " ");
+    
+    // Then print the data of node
+    printInorder(node.left);
 
     // Now recur on right child
     printInorder(node.right);
 }
+
+function printLevelOrder(){
+    let h= height(root)
+    var i;
+    for(i=1; i<=h;i++){
+        printCurrentLevel(root, i)
+    }
+
+
+}
+  function height(root) {
+      if (root == null)
+          return 0;
+      else {
+          // Compute height of each subtree
+          var lheight = height(root.left);
+          var rheight = height(root.right);
+
+          // Use the larger one
+          if (lheight > rheight)
+              return (lheight + 1);
+          else
+              return (rheight + 1);
+      }
+  }
+
+   function printCurrentLevel(root, level) {
+       if (root == null)
+           return;
+       if (level == 1)
+           console.log(root.key + " ");
+       else if (level > 1) {
+           printCurrentLevel(root.left, level - 1);
+           printCurrentLevel(root.right, level - 1);
+       }
+   }
 
 // Driver method 
 
@@ -35,8 +71,12 @@ root.left = new Node(2);
 root.right = new Node(3);
 root.left.left = new Node(4);
 root.left.right = new Node(5);
+root.right.left = new Node(6);
+root.right.right = new Node(7);
+
+
 
 console.log("Inorder traversal of binary tree is ");
-printInorder(root);
+printLevelOrder();
 
 
